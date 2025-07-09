@@ -13,6 +13,8 @@ function calculadoraImc() {
 
         let resultado = peso / (altura ** 2)
 
+        let pesoIdeal = 24 * (altura ** 2)
+
         const paragrafo = document.createElement('p')
 
         let mensagem = ''
@@ -50,6 +52,8 @@ function calculadoraImc() {
         } else if (idade > 55 && resultado >= 25 && resultado <= 27) {
             mensagem += ` Entretanto, para sua idade o valor é considerado saudável.`
         }
+
+        mensagem += ` O peso ideal para a sua altura é: ${pesoIdeal.toFixed(1)}kg`
 
         paragrafo.textContent = mensagem;
 
