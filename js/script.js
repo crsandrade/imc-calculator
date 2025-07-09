@@ -1,7 +1,4 @@
-// PESO / ALTURA X ALTURA
-
 function calculadoraImc() {
-
 
     const form = document.querySelector('#formulario')
     const mostrarResultado = document.querySelector('.mostrarResultado')
@@ -19,19 +16,26 @@ function calculadoraImc() {
         const paragrafo = document.createElement('p')
 
         let mensagem = ''
+        let colorAlert;
 
         if (resultado < 18.5) {
             mensagem = `Seu IMC é ${resultado.toFixed(1)} e você está abaixo do peso.`
+            colorAlert = 'rgb(243, 43, 43, 0.5)'
         } else if (resultado >= 18.5 && resultado <= 24.9) {
             mensagem = `Seu IMC é ${resultado.toFixed(1)} e você está com peso normal.`
+            colorAlert = 'rgb(0, 120, 0, 0.5)'
         } else if (resultado >= 25 && resultado <= 29.9) {
             mensagem = `Seu IMC é ${resultado.toFixed(1)} e você está com sobrepeso.`
+            colorAlert = 'rgba(53, 152, 218, 0.5)'
         } else if (resultado >= 30 && resultado <= 34.9) {
             mensagem = `Seu IMC é ${resultado.toFixed(1)} e você está com Obesidade grau 1.`
+            colorAlert = 'rgb(200, 50, 50, 0.5)'
         } else if (resultado >= 35 && resultado <= 39.9) {
             mensagem = `Seu IMC é ${resultado.toFixed(1)} e você está com Obesidade grau 2.`
+            colorAlert = 'rgb(147, 18, 18, 0.5)'
         } else {
-           mensagem = `Seu IMC é ${resultado.toFixed(1)} e você está com Obesidade grau 3.`
+            mensagem = `Seu IMC é ${resultado.toFixed(1)} e você está com Obesidade grau 3.`
+            colorAlert = 'rgb(97, 1, 1, 0.5)'
         }
 
         if (idade < 12 && resultado >= 18) {
@@ -40,12 +44,13 @@ function calculadoraImc() {
             mensagem += ` Entretanto, para sua idade o valor é considerado saudável.`
         }
         paragrafo.textContent = mensagem;
+        mostrarResultado.style.backgroundColor = colorAlert;
 
+        mostrarResultado.innerHTML = ` `
         mostrarResultado.appendChild(paragrafo)
-    }
 
+    }
     form.addEventListener('submit', calcularImc)
 }
-
 
 calculadoraImc();
