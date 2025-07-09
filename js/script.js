@@ -2,6 +2,7 @@ function calculadoraImc() {
 
     const form = document.querySelector('#formulario')
     const mostrarResultado = document.querySelector('.mostrarResultado')
+    let contador = 1;
 
     function calcularImc(event) {
         event.preventDefault();
@@ -17,6 +18,13 @@ function calculadoraImc() {
         let mensagem = ''
         let colorAlert;
 
+        if (!peso || !altura || !idade) {
+            mostrarResultado.innerHTML = ``
+            paragrafo.textContent = `Dados Incorretos.[${contador++}]`
+            mostrarResultado.appendChild(paragrafo)
+            return;
+        }
+    
         if (resultado < 18.5) {
             mensagem = `Seu IMC é ${resultado.toFixed(1)} e você está abaixo do peso.`
             colorAlert = 'rgb(243, 43, 43, 0.5)'
@@ -42,9 +50,10 @@ function calculadoraImc() {
         } else if (idade > 55 && resultado >= 25 && resultado <= 27) {
             mensagem += ` Entretanto, para sua idade o valor é considerado saudável.`
         }
-        paragrafo.textContent = mensagem;
-        mostrarResultado.style.backgroundColor = colorAlert;
 
+        paragrafo.textContent = mensagem;
+
+        mostrarResultado.style.backgroundColor = colorAlert;
         mostrarResultado.innerHTML = ` `
         mostrarResultado.appendChild(paragrafo)
 
