@@ -22,6 +22,18 @@ li {
     margin-top: 0.3rem;
 }
 
+form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+form input, label, button, input, select {
+    padding: 0.1rem;
+    margin-top: 0.1rem;
+}
+
+
 .container h2 {
     margin-top: 1rem;
     align-self: start;
@@ -49,20 +61,14 @@ li {
     margin-top: 1rem;
 }
 
-form {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-}
-
-form input, label, button, input, select {
-    padding: 0.1rem;
-    margin-top: 0.1rem;
-}
-
 #calcular {
     background-color: aquamarine;
     margin-top: 2rem;
+}
+
+input[type=number]::-webkit-outer-spin-button,
+input[type=number]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
 }
 
 .mostrarResultado {
