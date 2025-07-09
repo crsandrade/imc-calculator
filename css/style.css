@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: sans-serif;
 }
 
 body {
@@ -63,7 +64,7 @@ form input, label, button, input, select {
 
 #calcular {
     background-color: aquamarine;
-    margin-top: 2rem;
+    margin-top: 1.3rem;
 }
 
 input[type=number]::-webkit-outer-spin-button,
@@ -72,11 +73,16 @@ input[type=number]::-webkit-inner-spin-button {
 }
 
 .mostrarResultado {
-    margin-top: 1.5rem;
+    margin-top: 0.75rem;
     background-color: rgb(0, 53, 54, 0.3);
     width: 100%;
     height: 75%;
     max-height: 12rem;
-    overflow-y: auto;
     border: 0.1rem solid #ccc;
+    border-radius: 0.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    padding: 1rem;
 }
