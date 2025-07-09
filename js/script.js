@@ -9,7 +9,6 @@ function calculadoraImc() {
         const peso = document.querySelector('#weight').value
         const altura = document.querySelector('#height').value
         const idade = document.querySelector('#age').value
-        const genero = document.querySelector('#gender').value
 
         let resultado = peso / (altura ** 2)
 
