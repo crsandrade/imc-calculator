@@ -18,21 +18,32 @@ function calculadoraImc() {
 
         const paragrafo = document.createElement('p')
 
+        let mensagem = ''
+
+        if (resultado < 18.5) {
+            mensagem = `Seu IMC é ${resultado.toFixed(1)} e você está abaixo do peso.`
+        } else if (resultado >= 18.5 && resultado <= 24.9) {
+            mensagem = `Seu IMC é ${resultado.toFixed(1)} e você está com peso normal.`
+        } else if (resultado >= 25 && resultado <= 29.9) {
+            mensagem = `Seu IMC é ${resultado.toFixed(1)} e você está com sobrepeso.`
+        } else if (resultado >= 30 && resultado <= 34.9) {
+            mensagem = `Seu IMC é ${resultado.toFixed(1)} e você está com Obesidade grau 1.`
+        } else if (resultado >= 35 && resultado <= 39.9) {
+            mensagem = `Seu IMC é ${resultado.toFixed(1)} e você está com Obesidade grau 2.`
+        } else {
+           mensagem = `Seu IMC é ${resultado.toFixed(1)} e você está com Obesidade grau 3.`
+        }
+
         if (idade < 12 && resultado >= 18) {
-            paragrafo.textContent = `Seu IMC é de: ${resultado.toFixed(2)} e você está com sobrepeso.`
-        } else
-            if (idade > 55 && resultado >= 25 && resultado <= 27) {
-            
-                paragrafo.textContent = `Seu IMC é de: ${resultado.toFixed(2)} e você está saudável.`
-            } else {
-                
-                paragrafo.textContent = `Seu IMC é de: ${resultado.toFixed(2)}`
-            }
-     
+            mensagem += ` Porém como você possui menos de 12 anos, o IMC não é tão confiável.`
+        } else if (idade > 55 && resultado >= 25 && resultado <= 27) {
+            mensagem += ` Entretanto, para sua idade o valor é considerado saudável.`
+        }
+        paragrafo.textContent = mensagem;
+
         mostrarResultado.appendChild(paragrafo)
-        
     }
-    
+
     form.addEventListener('submit', calcularImc)
 }
 
